@@ -152,19 +152,25 @@
         Zift<span>Studio</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#hero">Giriş</a></li>
-        <li><a href="#about">Hakkımızda</a></li>
-        <li><a href="#technologies">Teknolojiler</a></li>
-        <li><a href="#projects">Projeler</a></li>
-        <li><a href="#pricing">Paketler</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">İletişim</a></li>
+        <li><a href="#hero" data-lang-tr="Giriş" data-lang-en="Home">Giriş</a></li>
+        <li><a href="#founder-about" data-lang-tr="Stüdyo" data-lang-en="Studio">Stüdyo</a></li>
+        <li><a href="#projects" data-lang-tr="Projeler" data-lang-en="Projects">Projeler</a></li>
+        <li><a href="#technologies" data-lang-tr="Teknolojiler" data-lang-en="Tech">Teknolojiler</a></li>
+        <li><a href="#pricing" data-lang-tr="Paketler" data-lang-en="Pricing">Paketler</a></li>
+        <li><a href="#blog" data-lang-tr="Blog" data-lang-en="Blog">Blog</a></li>
+        <li><a href="#contact" data-lang-tr="İletişim" data-lang-en="Contact">İletişim</a></li>
       </ul>
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <button class="theme-toggle-nav" id="themeToggle" aria-label="Temayı Değiştir">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <!-- Dual Language Switcher (TR / EN) -->
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Dil Değiştirici / Language Switcher">
+          <button type="button" class="lang-btn active" data-lang-btn="tr" aria-label="Türkçe">TR</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
+        </div>
+
+        <button class="theme-toggle-nav" id="themeToggle" aria-label="Temayı Değiştir" data-lang-tr-title="Temayı Değiştir" data-lang-en-title="Toggle Theme">
           <span id="themeToggleIcon">🌙</span>
         </button>
-        <a href="pages/terminal.html" class="nav-cta">Terminal</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -173,28 +179,33 @@
 
     <!-- Mobile Nav Overlay -->
     <div class="mobile-nav" id="mobileNav">
-      <a href="#hero" onclick="closeMobileNav()">Giriş</a>
-      <a href="#about" onclick="closeMobileNav()">Hakkımızda</a>
-      <a href="#technologies" onclick="closeMobileNav()">Teknolojiler</a>
-      <a href="#projects" onclick="closeMobileNav()">Projeler</a>
-      <a href="#pricing" onclick="closeMobileNav()">Paketler</a>
-      <a href="#blog" onclick="closeMobileNav()">Blog</a>
-      <a href="#contact" onclick="closeMobileNav()">İletişim</a>
+      <div class="mobile-lang-switch" role="group" aria-label="Dil Seçimi">
+        <button type="button" class="lang-btn active" data-lang-btn="tr">TR</button>
+        <span class="lang-divider">/</span>
+        <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+      </div>
+      <a href="#hero" onclick="closeMobileNav()" data-lang-tr="Giriş" data-lang-en="Home">Giriş</a>
+      <a href="#founder-about" onclick="closeMobileNav()" data-lang-tr="Stüdyo" data-lang-en="Studio">Stüdyo</a>
+      <a href="#projects" onclick="closeMobileNav()" data-lang-tr="Projeler" data-lang-en="Projects">Projeler</a>
+      <a href="#technologies" onclick="closeMobileNav()" data-lang-tr="Teknolojiler" data-lang-en="Tech">Teknolojiler</a>
+      <a href="#pricing" onclick="closeMobileNav()" data-lang-tr="Paketler" data-lang-en="Pricing">Paketler</a>
+      <a href="#blog" onclick="closeMobileNav()" data-lang-tr="Blog" data-lang-en="Blog">Blog</a>
+      <a href="#contact" onclick="closeMobileNav()" data-lang-tr="İletişim" data-lang-en="Contact">İletişim</a>
     </div>
 
     <!-- Hero Section -->
     <section id="hero">
       <div class="hero-left">
-        <span class="hero-eyebrow">Yazılım & Dijital Tasarım Stüdyosu</span>
-        <h1 class="hero-title">
+        <span class="hero-eyebrow" data-lang-tr="Yazılım &amp; Dijital Tasarım Stüdyosu" data-lang-en="Software &amp; Digital Design Studio">Yazılım & Dijital Tasarım Stüdyosu</span>
+        <h1 class="hero-title" data-lang-tr="Dijital<br><em>deneyimler</em><br>inşa ediyoruz." data-lang-en="Crafting digital<br><em>experiences</em><br>that scale.">
           Dijital<br><em>deneyimler</em><br>inşa ediyoruz.
         </h1>
         <div class="hero-sub">
-          <p class="hero-desc">
+          <p class="hero-desc" data-lang-tr="Kompleks yazılım sorunlarını zarif, kullanıcı odaklı çözümlere dönüştüren bir yazılım stüdyosu. Modern teknoloji, güçlü mimari." data-lang-en="An engineering studio turning complex software challenges into elegant, revenue-driving solutions. Modern tech, resilient architecture.">
             Kompleks yazılım sorunlarını zarif, kullanıcı odaklı çözümlere dönüştüren bir yazılım stüdyosu. Modern
             teknoloji, güçlü mimari.
           </p>
-          <div class="hero-scroll">
+          <div class="hero-scroll" data-lang-tr="AŞAĞI KAYDIR" data-lang-en="SCROLL DOWN">
             <div class="hero-scroll-line"></div>
             AŞAĞI KAYDIR
           </div>
@@ -363,67 +374,353 @@
       </div>
     </section>
 
-    <!-- Selected Projects Section -->
-    <section id="projects" class="reveal">
-      <div class="projects-header">
-        <div>
-          <div class="section-label">Çalışmalarımız</div>
-          <h2 class="section-title">Proje<br><em>Kategorilerimiz</em></h2>
+    <!-- Founder & Studio Philosophy Section ("Behind the Studio") -->
+    <section id="founder-about" class="founder-section reveal">
+      <div class="tear-tape-sticker"></div>
+      <div class="section-label" data-lang-tr="Behind the Studio" data-lang-en="Behind the Studio">Behind the Studio</div>
+      <h2 class="section-title" data-lang-tr="Mühendislik odaklı yaklaşım.<br><em>Gelir üreten sistemler.</em>" data-lang-en="Engineering-driven approach.<br><em>Systems that drive revenue.</em>">
+        Mühendislik odaklı yaklaşım.<br><em>Gelir üreten sistemler.</em>
+      </h2>
+
+      <div class="founder-bento-layout">
+        <!-- Left: Philosophy & Manifesto Card -->
+        <div class="founder-manifesto-card">
+          <div>
+            <div class="founder-badge-eyebrow">
+              <span class="bento-status-dot active"></span>
+              <span data-lang-tr="// STÜDYO FELSEFESİ" data-lang-en="// STUDIO PHILOSOPHY">// STÜDYO FELSEFESİ</span>
+            </div>
+
+            <h3 class="founder-quote-banner" data-lang-tr="&ldquo;We build digital tools that actually <em>drive revenue</em>, not just pretty pixels.&rdquo;" data-lang-en="&ldquo;We build digital tools that actually <em>drive revenue</em>, not just pretty pixels.&rdquo;">
+              &ldquo;We build digital tools that actually <em>drive revenue</em>, not just pretty pixels.&rdquo;
+            </h3>
+
+            <p class="founder-manifesto-text" data-lang-tr="Geleneksel ajanslar genellikle yalnızca yüzeysel tasarıma ve süslü sunumlara odaklanır. Zift Studio'da biz yazılımı; operasyonel maliyetleri düşüren, müşteri edinme süreçlerini otomatize eden ve doğrudan işletme kârlılığı sağlayan bir kaldıraç olarak konumluyoruz. Her satır kod ve her piksel, ölçülebilir bir iş hedefine hizmet eder." data-lang-en="Traditional agencies often get lost in superficial aesthetics and endless presentations. At Zift Studio, we treat software as a high-leverage business engine: one that eliminates operational drag, automates sales pipelines, and directly scales client revenue. Every single line of code and UI component serves a measurable business outcome.">
+              Geleneksel ajanslar genellikle yalnızca yüzeysel tasarıma ve süslü sunumlara odaklanır. Zift Studio'da biz yazılımı; operasyonel maliyetleri düşüren, müşteri edinme süreçlerini otomatize eden ve doğrudan işletme kârlılığı sağlayan bir kaldıraç olarak konumluyoruz. Her satır kod ve her piksel, ölçülebilir bir iş hedefine hizmet eder.
+            </p>
+          </div>
+
+          <div class="founder-profile-bar">
+            <div class="founder-author-info">
+              <div class="founder-avatar-wrap">
+                <img src="assets/image/hero-avatar.jpg" alt="Muhammed Ali Kıtır - Zift Studio Founder" loading="lazy">
+              </div>
+              <div>
+                <div class="founder-meta-name">Muhammed Ali Kıtır</div>
+                <div class="founder-meta-role" data-lang-tr="Kurucu &amp; Full-Stack Mimar" data-lang-en="Founder &amp; Full-Stack Architect">Kurucu &amp; Full-Stack Mimar</div>
+              </div>
+            </div>
+            <div class="founder-status-indicator">
+              <span class="bento-status-dot active"></span>
+              <span data-lang-tr="Aktif &amp; Kodluyor" data-lang-en="Active &amp; Shipping">Aktif &amp; Kodluyor</span>
+            </div>
+          </div>
         </div>
-        <a href="pages/projeler.html" class="view-all">Tüm Projeler →</a>
+
+        <!-- Right: Technical Capabilities Stack -->
+        <div class="founder-capabilities-stack">
+          <!-- Capability 1: Full-Stack Development -->
+          <div class="capability-card cap-fullstack">
+            <div class="capability-header">
+              <div class="capability-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="capability-title" data-lang-tr="Full-stack Development" data-lang-en="Full-stack Development">Full-stack Development</h3>
+            </div>
+            <p class="capability-desc" data-lang-tr="TypeScript, React/Next.js, Node.js ve Python ile tip güvenli, sıfır teknik borçlu ve ölçeklenebilir modern web platformları." data-lang-en="Type-safe, resilient web architectures built with TypeScript, React/Next.js, Node.js, and Python without legacy bloat.">
+              TypeScript, React/Next.js, Node.js ve Python ile tip güvenli, sıfır teknik borçlu ve ölçeklenebilir modern web platformları.
+            </p>
+            <div class="capability-badges-row">
+              <span class="cap-badge">TypeScript</span>
+              <span class="cap-badge">Next.js 14</span>
+              <span class="cap-badge">Node / FastAPI</span>
+              <span class="cap-badge">PostgreSQL</span>
+              <span class="cap-badge">Docker</span>
+            </div>
+          </div>
+
+          <!-- Capability 2: Intelligent Automation -->
+          <div class="capability-card cap-automation">
+            <div class="capability-header">
+              <div class="capability-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <h3 class="capability-title" data-lang-tr="Automation &amp; Workflows" data-lang-en="Automation &amp; Workflows">Automation &amp; Workflows</h3>
+            </div>
+            <p class="capability-desc" data-lang-tr="Manuel tekrarlayan işleri sıfırlayan akıllı webhook köprüleri, WhatsApp/Stripe entegrasyonları ve arka plan veri boru hatları." data-lang-en="Custom webhooks, automated WhatsApp/Stripe workflows, and background job pipelines that eliminate redundant manual hours.">
+              Manuel tekrarlayan işleri sıfırlayan akıllı webhook köprüleri, WhatsApp/Stripe entegrasyonları ve arka plan veri boru hatları.
+            </p>
+            <div class="capability-badges-row">
+              <span class="cap-badge">API Integrations</span>
+              <span class="cap-badge">Webhooks</span>
+              <span class="cap-badge">Make / n8n</span>
+              <span class="cap-badge">Stripe &amp; CRM</span>
+            </div>
+          </div>
+
+          <!-- Capability 3: Conversion Rate Optimization -->
+          <div class="capability-card cap-cro">
+            <div class="capability-header">
+              <div class="capability-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="capability-title" data-lang-tr="Conversion Rate Optimization" data-lang-en="Conversion Rate Optimization">Conversion Rate Optimization</h3>
+            </div>
+            <p class="capability-desc" data-lang-tr="0.3 saniyelik açılış süreleri, sezgisel UX akışları ve veri odaklı huni mimarisiyle ziyaretçileri sadık müşterilere dönüştürme." data-lang-en="Sub-second page speeds, frictionless checkout funnels, and data-backed UX architecture engineered to convert traffic into revenue.">
+              0.3 saniyelik açılış süreleri, sezgisel UX akışları ve veri odaklı huni mimarisiyle ziyaretçileri sadık müşterilere dönüştürme.
+            </p>
+            <div class="capability-badges-row">
+              <span class="cap-badge">Core Web Vitals</span>
+              <span class="cap-badge">Funnel UX</span>
+              <span class="cap-badge">A/B Testing</span>
+              <span class="cap-badge">Analytics Telemetry</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="projects-grid project-category-grid">
-        <a class="project-category-card reveal" href="pages/qr-menu.html">
-          <div class="category-card-visual">
-            <img src="assets/image/qr-menu-thumb.jpg" alt="QR Menü Hizmetleri" class="category-card-img">
-          </div>
-          <span class="section-label">Özel Yazılım</span>
-          <h3>QR Menü <em>Hizmetleri</em></h3>
-          <p>
-            Admin panelli ve statik QR Menü paketlerini, fiyatları ve canlı
-            demoları inceleyin.
-          </p>
-          <strong>QR Menü sayfasını aç →</strong>
-        </a>
 
-        <a class="project-category-card reveal" href="pages/saas.html">
-          <div class="category-card-visual">
-            <img src="assets/image/saas-thumb.jpg" alt="SaaS Siteleri" class="category-card-img">
+      <!-- Studio Principles / Guarantees Ribbon -->
+      <div class="founder-guarantees-grid">
+        <div class="guarantee-box">
+          <span class="guarantee-icon">⚡</span>
+          <div>
+            <div style="font-weight: 700;" data-lang-tr="0.3s Yüklenme Hızı" data-lang-en="0.3s Ultra-Fast Load">0.3s Yüklenme Hızı</div>
+            <div style="font-size: 0.72rem; opacity: 0.7;" data-lang-tr="Kusursuz Core Web Vitals" data-lang-en="Perfect Core Web Vitals">Kusursuz Core Web Vitals</div>
           </div>
-          <span class="section-label">Dijital Ürünler</span>
-          <h3>SaaS <em>Siteleri</em></h3>
-          <p>
-            CafeAroma, QRMenu, Sınav Sayacı, QR Kod Oluşturucu ve Flip Clock
-            projelerini keşfedin.
-          </p>
-          <strong>SaaS sitelerini aç →</strong>
-        </a>
+        </div>
+        <div class="guarantee-box">
+          <span class="guarantee-icon">🛡️</span>
+          <div>
+            <div style="font-weight: 700;" data-lang-tr="%100 Kod Mülkiyeti" data-lang-en="100% Code Ownership">%100 Kod Mülkiyeti</div>
+            <div style="font-size: 0.72rem; opacity: 0.7;" data-lang-tr="Satıcı kilitlenmesi yok" data-lang-en="No vendor lock-in">Satıcı kilitlenmesi yok</div>
+          </div>
+        </div>
+        <div class="guarantee-box">
+          <span class="guarantee-icon">🎯</span>
+          <div>
+            <div style="font-weight: 700;" data-lang-tr="Doğrudan İletişim" data-lang-en="Direct Engineer Access">Doğrudan İletişim</div>
+            <div style="font-size: 0.72rem; opacity: 0.7;" data-lang-tr="Sıfır bürokrasi, net teslim" data-lang-en="Zero agency fluff">Sıfır bürokrasi, net teslim</div>
+          </div>
+        </div>
+        <div class="guarantee-box">
+          <span class="guarantee-icon">📈</span>
+          <div>
+            <div style="font-weight: 700;" data-lang-tr="Dönüşüm Odaklı" data-lang-en="Conversion Focused">Dönüşüm Odaklı</div>
+            <div style="font-size: 0.72rem; opacity: 0.7;" data-lang-tr="Ölçülebilir iş etkisi" data-lang-en="Measurable ROI &amp; growth">Ölçülebilir iş etkisi</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <a class="project-category-card reveal" href="pages/musteri-siteleri.html">
-          <div class="category-card-visual">
-            <img src="assets/image/musteri-thumb.jpg" alt="Müşteri Siteleri" class="category-card-img">
+    <!-- Projects & Live Systems Showcase Section -->
+    <section id="projects" class="projects-showcase-section reveal">
+      <div class="tear-tape-sticker"></div>
+      <div class="projects-showcase-header">
+        <div>
+          <div class="section-subtitle" data-lang-tr="Portfolyo &amp; Çözümler // 2025" data-lang-en="Portfolio &amp; Solutions // 2025">
+            Portfolyo &amp; Çözümler // 2025
           </div>
-          <span class="section-label">Referanslar</span>
-          <h3>Müşteri <em>Siteleri</em></h3>
-          <p>
-            Topluluk, kişisel marka, hukuk, 3D tasarım ve e-ticaret
-            projelerimizi inceleyin.
+          <h2 class="section-title" data-lang-tr="Geliştirdiğimiz <em>Projeler</em><br>ve Canlı Sistemler." data-lang-en="Engineered <em>Projects</em><br>&amp; Live Systems.">
+            Geliştirdiğimiz <em>Projeler</em><br>ve Canlı Sistemler.
+          </h2>
+          <p class="projects-header-desc" data-lang-tr="Restoran QR menü altyapıları, online randevu motorları, SaaS ürünleri ve gerçek müşterilerimiz için hayata geçirdiğimiz kurumsal web platformları. Canlı, test edilebilir ve ölçeklenebilir." data-lang-en="Interactive QR menu platforms, automated appointment booking engines, SaaS utilities, and verified client web applications. Built for speed, conversions, and scale.">
+            Restoran QR menü altyapıları, online randevu motorları, SaaS ürünleri ve gerçek müşterilerimiz için hayata geçirdiğimiz kurumsal web platformları. Canlı, test edilebilir ve ölçeklenebilir.
           </p>
-          <strong>Müşteri sitelerini aç →</strong>
-        </a>
+        </div>
+        <div>
+          <a href="pages/projeler.html" class="projects-master-btn" data-lang-tr="Tüm Projeler Sayfasını Aç →" data-lang-en="Open All Projects Page →">
+            <span data-lang-tr="Tüm Projeler Sayfasını Aç" data-lang-en="Open All Projects Page">Tüm Projeler Sayfasını Aç</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
 
-        <a class="project-category-card reveal" href="pages/randevu.html">
-          <div class="category-card-visual">
-            <img src="assets/image/randevu/randevu-1.png" alt="Randevu Sistemi" class="category-card-img">
+      <!-- Quick Highlights Strip -->
+      <div class="projects-quick-strip">
+        <div class="projects-strip-pill">
+          <span class="dot"></span>
+          <span data-lang-tr="4 Ana Ürün Kategorisi" data-lang-en="4 Core Product Pillars">4 Ana Ürün Kategorisi</span>
+        </div>
+        <div class="projects-strip-pill">
+          <span class="dot"></span>
+          <span data-lang-tr="15+ Canlı Proje &amp; Demo" data-lang-en="15+ Live Deployments &amp; Demos">15+ Canlı Proje &amp; Demo</span>
+        </div>
+        <div class="projects-strip-pill">
+          <span class="dot"></span>
+          <span data-lang-tr="Admin Paneli &amp; Otomasyon" data-lang-en="Admin Dashboards &amp; Automation">Admin Paneli &amp; Otomasyon</span>
+        </div>
+        <div class="projects-strip-pill">
+          <span class="dot"></span>
+          <span data-lang-tr="%100 Canlı Test Edilebilir" data-lang-en="100% Live &amp; Testable">100% Canlı Test Edilebilir</span>
+        </div>
+      </div>
+
+      <!-- 4 Showcase Category Cards Grid -->
+      <div class="projects-showcase-grid">
+
+        <!-- 1. QR Menü Hizmetleri -->
+        <article class="project-showcase-card">
+          <div class="showcase-card-visual">
+            <img src="assets/image/qr-menu-thumb.jpg" alt="QR Menü Hizmetleri" class="showcase-card-img" />
+            <span class="showcase-badge-overlay" data-lang-tr="Özel Yazılım" data-lang-en="Custom Software">Özel Yazılım</span>
+            <span class="showcase-metric-overlay" data-lang-tr="⚡ 0.3s Yüklenme" data-lang-en="⚡ 0.3s Load">⚡ 0.3s Yüklenme</span>
           </div>
-          <span class="section-label">Randevu Sistemi</span>
-          <h3>Randevu <em>Sistemi</em></h3>
-          <p>
-            Admin panelli ve statik Randevu Sistemi paketlerini, fiyatları ve canlı
-            demoları inceleyin.
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">QR Menü <em>Hizmetleri</em></h3>
+            <p class="showcase-card-desc" data-lang-tr="Restoran ve kafeler için temassız dijital menü çözümü. Anlık fiyat &amp; ürün güncelleme sunan admin paneli, çoklu dil desteği, sıfır komisyon ve ultra hızlı mobil deneyim." data-lang-en="Contactless digital menu platform for restaurants and cafes. Real-time admin price dashboard, multi-language support, zero commission, and sub-second mobile loading speed.">
+              Restoran ve kafeler için temassız dijital menü çözümü. Anlık fiyat &amp; ürün güncelleme sunan admin paneli, çoklu dil desteği, sıfır komisyon ve ultra hızlı mobil deneyim.
+            </p>
+            <ul class="showcase-tech-tags">
+              <li class="showcase-tech-tag">Admin Paneli</li>
+              <li class="showcase-tech-tag">Çok Dilli Menü</li>
+              <li class="showcase-tech-tag">Mobil Uyumlu</li>
+              <li class="showcase-tech-tag">Statik &amp; Dinamik</li>
+            </ul>
+            <div class="showcase-card-actions">
+              <a href="pages/qr-menu.html" class="showcase-action-btn">
+                <span data-lang-tr="QR Menü Sayfasını Aç" data-lang-en="Open QR Menu Page">QR Menü Sayfasını Aç</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://qr-menu-seri2.vercel.app/" target="_blank" rel="noopener noreferrer" class="showcase-demo-btn" data-lang-tr="Canlı Demo ↗" data-lang-en="Live Demo ↗">
+                Canlı Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Randevu Sistemi -->
+        <article class="project-showcase-card">
+          <div class="showcase-card-visual">
+            <img src="assets/image/randevu/randevu-1.png" alt="Randevu Sistemi" class="showcase-card-img" />
+            <span class="showcase-badge-overlay" data-lang-tr="Rezervasyon Motoru" data-lang-en="Booking Engine">Rezervasyon Motoru</span>
+            <span class="showcase-metric-overlay" data-lang-tr="📅 Takvim &amp; SMS" data-lang-en="📅 Calendar &amp; SMS">📅 Takvim &amp; SMS</span>
+          </div>
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">Randevu <em>Sistemi</em></h3>
+            <p class="showcase-card-desc" data-lang-tr="Kuaför, diş hekimi, psikolog, klinik ve hizmet sektörü için otomatik takvim senkronizasyonlu, SMS/WhatsApp bildirimli, personel yönetimli admin panelli randevu altyapısı." data-lang-en="Automated online appointment infrastructure with calendar sync, SMS/WhatsApp reminders, staff scheduling, and an intuitive admin panel for barbers, clinics, and consultants.">
+              Kuaför, diş hekimi, psikolog, klinik ve hizmet sektörü için otomatik takvim senkronizasyonlu, SMS/WhatsApp bildirimli, personel yönetimli admin panelli randevu altyapısı.
+            </p>
+            <ul class="showcase-tech-tags">
+              <li class="showcase-tech-tag">Randevu Paneli</li>
+              <li class="showcase-tech-tag">SMS &amp; WhatsApp</li>
+              <li class="showcase-tech-tag">Takvim Senkronu</li>
+              <li class="showcase-tech-tag">Hizmet Sektörü</li>
+            </ul>
+            <div class="showcase-card-actions">
+              <a href="pages/randevu.html" class="showcase-action-btn">
+                <span data-lang-tr="Randevu Sayfasını Aç" data-lang-en="Open Booking Page">Randevu Sayfasını Aç</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://qr-menu-nsoi.vercel.app/" target="_blank" rel="noopener noreferrer" class="showcase-demo-btn" data-lang-tr="Canlı Demo ↗" data-lang-en="Live Demo ↗">
+                Canlı Demo ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Müşteri Siteleri & Referanslar -->
+        <article class="project-showcase-card">
+          <div class="showcase-card-visual">
+            <img src="assets/image/musteri-thumb.jpg" alt="Müşteri Siteleri" class="showcase-card-img" />
+            <span class="showcase-badge-overlay" data-lang-tr="Referanslar" data-lang-en="Client Works">Referanslar</span>
+            <span class="showcase-metric-overlay" data-lang-tr="🏛️ Gerçek Müşteriler" data-lang-en="🏛️ Live Clients">🏛️ Gerçek Müşteriler</span>
+          </div>
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">Müşteri <em>Siteleri</em></h3>
+            <p class="showcase-card-desc" data-lang-tr="KonParlamento.org, KaratayGençMeclis.org, kurumsal hukuk büroları, kişisel marka portfolyoları ve 3D tasarım platformları gibi müşterilerimize teslim ettiğimiz yayındaki web siteleri." data-lang-en="Live deployed client projects including KonParlamento.org, KaratayGençMeclis.org, legal consultancy firms, personal branding hubs, and 3D printing design portals.">
+              KonParlamento.org, KaratayGençMeclis.org, kurumsal hukuk büroları, kişisel marka portfolyoları ve 3D tasarım platformları gibi müşterilerimize teslim ettiğimiz yayındaki web siteleri.
+            </p>
+            <ul class="showcase-tech-tags">
+              <li class="showcase-tech-tag">KonParlamento</li>
+              <li class="showcase-tech-tag">KaratayGençMeclis</li>
+              <li class="showcase-tech-tag">Hukuk Bürosu</li>
+              <li class="showcase-tech-tag">3D Portal</li>
+            </ul>
+            <div class="showcase-card-actions">
+              <a href="pages/musteri-siteleri.html" class="showcase-action-btn">
+                <span data-lang-tr="Müşteri Sitelerini Aç" data-lang-en="Open Client Sites">Müşteri Sitelerini Aç</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://karataygencmeclis.org" target="_blank" rel="noopener noreferrer" class="showcase-demo-btn" data-lang-tr="Canlı Site ↗" data-lang-en="Live Site ↗">
+                Canlı Site ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. SaaS Araçları & Dijital Ürünler -->
+        <article class="project-showcase-card">
+          <div class="showcase-card-visual">
+            <img src="assets/image/saas-thumb.jpg" alt="SaaS Araçları" class="showcase-card-img" />
+            <span class="showcase-badge-overlay" data-lang-tr="Dijital Ürünler" data-lang-en="Digital Products">Dijital Ürünler</span>
+            <span class="showcase-metric-overlay" data-lang-tr="🚀 Mikro SaaS" data-lang-en="🚀 Micro SaaS">🚀 Mikro SaaS</span>
+          </div>
+          <div class="showcase-card-body">
+            <h3 class="showcase-card-title">SaaS <em>Araçları</em></h3>
+            <p class="showcase-card-desc" data-lang-tr="CafeAroma, QR Kod Oluşturucu, Sınav Sayacı, Flip Clock ve işletme üretkenlik araçları gibi stüdyomuz tarafından üretilen interaktif dijital ürünler ve SaaS web uygulamaları." data-lang-en="Interactive digital tools and micro-SaaS web applications developed by Zift Studio, including CafeAroma, QR Code Generator, Exam Timer countdowns, and Flip Clock widgets.">
+              CafeAroma, QR Kod Oluşturucu, Sınav Sayacı, Flip Clock ve işletme üretkenlik araçları gibi stüdyomuz tarafından üretilen interaktif dijital ürünler ve SaaS web uygulamaları.
+            </p>
+            <ul class="showcase-tech-tags">
+              <li class="showcase-tech-tag">CafeAroma</li>
+              <li class="showcase-tech-tag">QR Generator</li>
+              <li class="showcase-tech-tag">Sınav Sayacı</li>
+              <li class="showcase-tech-tag">Flip Clock</li>
+            </ul>
+            <div class="showcase-card-actions">
+              <a href="pages/saas.html" class="showcase-action-btn">
+                <span data-lang-tr="SaaS Araçlarını Aç" data-lang-en="Open SaaS Tools">SaaS Araçlarını Aç</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="pages/saas.html" class="showcase-demo-btn" data-lang-tr="Ürünleri Gör ↗" data-lang-en="View Products ↗">
+                Ürünleri Gör ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Master Hub Gateway Banner (Direct Link to pages/projeler.html) -->
+      <div class="projects-master-hub-banner reveal">
+        <div class="hub-banner-content">
+          <div class="hub-banner-badge" data-lang-tr="TAM PORTFOLYO &amp; ARŞİV" data-lang-en="FULL PORTFOLIO &amp; ARCHIVE">
+            TAM PORTFOLYO &amp; ARŞİV
+          </div>
+          <h3 class="hub-banner-title" data-lang-tr="Tüm Projelerimiz, Canlı Demolar ve Vaka Analizleri Tek Sayfada" data-lang-en="All Projects, Live Demos &amp; Case Studies in One Place">
+            Tüm Projelerimiz, Canlı Demolar ve Vaka Analizleri Tek Sayfada
+          </h3>
+          <p class="hub-banner-desc" data-lang-tr="Zift Studio'nun tüm kategorilerdeki aktif yazılımlarını, müşteri referanslarını, fiyatlandırma paketlerini ve interaktif canlı demolarını 'Tüm Projelerimiz' sayfamızda derinlemesine keşfedin." data-lang-en="Explore every active software build, client website, pricing model, and interactive live demo engineered by Zift Studio in our dedicated comprehensive projects page.">
+            Zift Studio'nun tüm kategorilerdeki aktif yazılımlarını, müşteri referanslarını, fiyatlandırma paketlerini ve interaktif canlı demolarını "Tüm Projelerimiz" sayfamızda derinlemesine keşfedin.
           </p>
-          <strong>Randevu Sistemi sayfasını aç →</strong>
-        </a>
+          <div class="hub-banner-stats">
+            <div class="hub-stat-item">
+              <strong>15+</strong>
+              <span data-lang-tr="Canlı Proje" data-lang-en="Live Projects">Canlı Proje</span>
+            </div>
+            <div class="hub-stat-item">
+              <strong>4</strong>
+              <span data-lang-tr="Ana Kategori" data-lang-en="Core Pillars">Ana Kategori</span>
+            </div>
+            <div class="hub-stat-item">
+              <strong>%100</strong>
+              <span data-lang-tr="Özel Mimari" data-lang-en="Custom Built">Özel Mimari</span>
+            </div>
+          </div>
+        </div>
+        <div class="hub-banner-action">
+          <a href="pages/projeler.html" class="hub-banner-main-btn" data-lang-tr="Tüm Projeler Sayfasına Git →" data-lang-en="Explore All Projects Page →">
+            <span data-lang-tr="Tüm Projeler Sayfasına Git" data-lang-en="Explore All Projects Page">Tüm Projeler Sayfasına Git</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     </section>
 

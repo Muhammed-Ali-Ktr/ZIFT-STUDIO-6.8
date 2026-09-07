@@ -299,21 +299,20 @@ function initProgressBar() {
   if (!progressFill) return;
 
   const sections = [
-    { id: 'hero', label: 'Giriş' },
-    { id: 'about', label: 'Hakkımızda' },
-    { id: 'technologies', label: 'Teknolojiler' },
-    { id: 'projects', label: 'Projeler' },
-    { id: 'pricing', label: 'Paketler' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'İletişim' },
-    { id: 'success', label: 'Görüşler' }
+    { id: 'hero', label: 'Giriş', labelEn: 'Home' },
+    { id: 'founder-about', label: 'Stüdyo', labelEn: 'Studio' },
+    { id: 'projects', label: 'Projeler', labelEn: 'Projects' },
+    { id: 'technologies', label: 'Teknolojiler', labelEn: 'Tech' },
+    { id: 'pricing', label: 'Paketler', labelEn: 'Pricing' },
+    { id: 'blog', label: 'Blog', labelEn: 'Blog' },
+    { id: 'contact', label: 'İletişim', labelEn: 'Contact' }
   ];
 
   const checkpointsContainer = document.getElementById('checkpoints');
   if (checkpointsContainer) {
     // Generate checkpoints dynamically if container is present
-    checkpointsContainer.innerHTML = sections.map((sec, idx) => `
-      <div class="checkpoint" data-section="${sec.id}" onclick="scrollToSection('${sec.id}')" title="${sec.label}">
+    checkpointsContainer.innerHTML = sections.map((sec) => `
+      <div class="checkpoint" data-section="${sec.id}" onclick="scrollToSection('${sec.id}')" title="${sec.label}" data-lang-tr-title="${sec.label}" data-lang-en-title="${sec.labelEn}">
         <div class="checkpoint-dot"></div>
       </div>
     `).join('');
@@ -846,9 +845,108 @@ function initBlogLightbox() {
   });
 }
 
+// Dual Language (TR / EN) Switcher Engine
+const i18nEngine = {
+  currentLang: 'tr',
+
+  init() {
+    // 1. Determine initial language: saved preference, or html lang, or default 'tr'
+    const savedLang = safeStorage.getItem('zift_language') || document.documentElement.getAttribute('lang') || 'tr';
+    this.setLanguage(savedLang, false);
+
+    // 2. Attach listeners to all language switcher buttons (.lang-btn)
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetLang = btn.getAttribute('data-lang-btn') || btn.getAttribute('data-lang') || 'tr';
+        if (targetLang !== this.currentLang) {
+          this.setLanguage(targetLang, true);
+        }
+      });
+    });
+  },
+
+  setLanguage(lang, animate = true) {
+    this.currentLang = lang;
+    safeStorage.setItem('zift_language', lang);
+    document.documentElement.setAttribute('lang', lang);
+
+    // Update active UI state for switcher buttons
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+      const btnLang = btn.getAttribute('data-lang-btn') || btn.getAttribute('data-lang');
+      if (btnLang === lang) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    // Find all translatable elements
+    const translatableElements = document.querySelectorAll('[data-lang-tr], [data-lang-en]');
+    const placeholderElements = document.querySelectorAll('[data-lang-tr-placeholder], [data-lang-en-placeholder]');
+    const titleElements = document.querySelectorAll('[data-lang-tr-title], [data-lang-en-title]');
+
+    const applyTranslations = () => {
+      // 1. Text / HTML content
+      translatableElements.forEach(el => {
+        const text = el.getAttribute(`data-lang-${lang}`);
+        if (text !== null) {
+          // If string contains HTML tags, render with innerHTML, else textContent
+          if (/<[a-z][\s\S]*>/i.test(text)) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        }
+      });
+
+      // 2. Placeholders
+      placeholderElements.forEach(el => {
+        const placeholderText = el.getAttribute(`data-lang-${lang}-placeholder`);
+        if (placeholderText !== null) {
+          el.setAttribute('placeholder', placeholderText);
+        }
+      });
+
+      // 3. Titles / Aria labels
+      titleElements.forEach(el => {
+        const titleText = el.getAttribute(`data-lang-${lang}-title`);
+        if (titleText !== null) {
+          el.setAttribute('title', titleText);
+          if (el.hasAttribute('aria-label')) {
+            el.setAttribute('aria-label', titleText);
+          }
+        }
+      });
+    };
+
+    if (animate) {
+      document.body.classList.add('lang-fade-out');
+      setTimeout(() => {
+        applyTranslations();
+        document.body.classList.remove('lang-fade-out');
+      }, 120);
+    } else {
+      applyTranslations();
+    }
+
+    // Broadcast event for custom listeners
+    document.dispatchEvent(new CustomEvent('ziftLanguageChanged', { detail: { lang } }));
+  }
+};
+
+function initLanguageSwitcher() {
+  i18nEngine.init();
+}
+
 // Initialize components on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initLanguageSwitcher();
   initProgressBar();
   initMobileNav();
   initConsentOverlay();
